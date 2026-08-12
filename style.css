@@ -72,54 +72,49 @@ nav a {
     color: #666;
 }
 
-
 .projects {
     width: 90%;
     margin: auto;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 70px 30px;
 }
 
-
 .project-card {
+    display: block;
     text-decoration: none;
     color: #111;
 }
 
-
 .project-card img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-
     display: block;
+
+    transition: transform 0.4s ease,
+                opacity 0.4s ease;
 }
 
+.project-card:hover img {
+    transform: scale(1.01);
+    opacity: 0.92;
+}
 
 .project-info {
-    margin-top: 15px;
-}
+    margin-top: 18px;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
 
 .project-info h2 {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 400;
 }
-
 
 .project-info p {
-    margin-top: 5px;
-
     font-size: 13px;
-
     color: #777;
 }
-
-
 .about {
     padding: 160px 5%;
     max-width: 800px;
@@ -154,11 +149,7 @@ footer {
 
 @media (max-width: 700px) {
 
-    .projects {
-        grid-template-columns: 1fr;
-    }
-
-
+    
     .hero {
         padding-top: 80px;
     }
