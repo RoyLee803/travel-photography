@@ -174,3 +174,64 @@ footer {
     }
 
 }
+.album-intro {
+    padding: 100px 5% 80px;
+}
+
+.album-location {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.album-intro h1 {
+    font-size: clamp(60px, 10vw, 140px);
+    font-weight: 400;
+    letter-spacing: -5px;
+}
+
+.album-description {
+    margin-top: 35px;
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+}
+
+.gallery {
+    width: 90%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.album-footer {
+    width: 90%;
+    margin: 100px auto;
+}
+
+.album-footer a {
+    color: #111;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .album-intro h1 {
+        letter-spacing: -2px;
+    }
+}
