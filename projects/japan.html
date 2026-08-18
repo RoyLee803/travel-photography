@@ -88,9 +88,6 @@
 </section>
 
 
-</section>
-
-
 
 <section class="album-footer">
 
@@ -210,23 +207,25 @@ function showNext() {
 
     lightboxImage.src =
         images[currentIndex].src;
+
+    lightboxImage.alt =
+        images[currentIndex].alt;
 }
-
-
 
 function showPrevious() {
 
     currentIndex--;
 
     if (currentIndex < 0) {
-        currentIndex =
-            images.length - 1;
+        currentIndex = images.length - 1;
     }
 
     lightboxImage.src =
         images[currentIndex].src;
-}
 
+    lightboxImage.alt =
+        images[currentIndex].alt;
+}
 
 
 images.forEach((image, index) => {
