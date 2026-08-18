@@ -131,9 +131,14 @@ nav a:hover {
 
 .project-card {
     display: block;
-
     color: #111;
     text-decoration: none;
+
+    margin-bottom: 150px;
+}
+
+.project-card:last-child {
+    margin-bottom: 0;
 }
 
 .project-card img {
