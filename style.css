@@ -21,46 +21,104 @@ body {
 
 
 /* =========================================
-   HEADER
+   SIDEBAR
 ========================================= */
 
-header {
-    width: 100%;
-    padding: 30px 4.5%;
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 220px;
+    height: 100vh;
+
+    padding: 30px 26px;
 
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 
-    position: relative;
-    z-index: 10;
+    background: #f2f0ea;
+
+    border-right: 1px solid #bbb;
+
+    z-index: 1000;
 }
 
-.logo {
+.sidebar-top {
+    width: 100%;
+}
+
+.sidebar-logo {
+    display: block;
+
+    margin-bottom: 72px;
+
     color: #111;
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
+
     letter-spacing: 3px;
 }
 
-nav {
+.sidebar-nav,
+.sidebar-social {
     display: flex;
-    gap: 34px;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 11px;
 }
 
-nav a {
+.sidebar-label {
+    display: block;
+
+    margin-top: 26px;
+    margin-bottom: 6px;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #888;
+}
+
+.sidebar-nav > a:first-child {
+    margin-bottom: 14px;
+}
+
+.sidebar-nav a,
+.sidebar-social a {
+    position: relative;
+
     color: #111;
     text-decoration: none;
 
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.4;
 
-    transition: opacity 0.25s ease;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
 }
 
-nav a:hover {
-    opacity: 0.4;
+.sidebar-nav a:hover,
+.sidebar-social a:hover {
+    opacity: 0.45;
+
+    transform: translateX(3px);
+}
+
+
+/* Main site area beside sidebar */
+
+.page-content {
+    margin-left: 220px;
 }
 
 
@@ -75,16 +133,19 @@ nav a:hover {
 
     display: grid;
     grid-template-columns: 3fr 1fr;
+
     align-items: end;
 }
 
 .hero h1 {
     max-width: 1250px;
 
-    font-size: clamp(80px, 10.5vw, 170px);
+    font-size: clamp(70px, 9vw, 155px);
+
     font-weight: 400;
 
     line-height: 0.82;
+
     letter-spacing: -0.075em;
 }
 
@@ -108,6 +169,7 @@ nav a:hover {
 
 .projects {
     width: 91%;
+
     margin: 0 auto;
 
     padding-bottom: 150px;
@@ -124,6 +186,7 @@ nav a:hover {
     border-top: 1px solid #bbb;
 
     font-size: 9px;
+
     letter-spacing: 2.2px;
 
     color: #666;
@@ -131,10 +194,11 @@ nav a:hover {
 
 .project-card {
     display: block;
-    color: #111;
-    text-decoration: none;
 
     margin-bottom: 150px;
+
+    color: #111;
+    text-decoration: none;
 }
 
 .project-card:last-child {
@@ -150,6 +214,7 @@ nav a:hover {
 
 .project-card:nth-of-type(even) .project-info h2 {
     grid-column: 2;
+
     text-align: right;
 }
 
@@ -211,6 +276,7 @@ nav a:hover {
     font-size: 9px;
 
     text-transform: uppercase;
+
     letter-spacing: 1.8px;
 
     color: #666;
@@ -316,7 +382,7 @@ footer p {
 .album-intro h1 {
     grid-column: 1;
 
-    font-size: clamp(90px, 13vw, 195px);
+    font-size: clamp(80px, 11vw, 175px);
 
     font-weight: 400;
 
@@ -435,6 +501,7 @@ footer p {
     font-size: 10px;
 
     text-transform: uppercase;
+
     letter-spacing: 1.5px;
 }
 
@@ -495,13 +562,16 @@ footer p {
     padding: 8px;
 
     border: 0;
+
     background: transparent;
 
     color: #fff;
 
     font-family: Arial, Helvetica, sans-serif;
+
     font-size: 34px;
     font-weight: 300;
+
     line-height: 1;
 
     cursor: pointer;
@@ -528,11 +598,13 @@ footer p {
     padding: 15px;
 
     border: 0;
+
     background: transparent;
 
     color: #fff;
 
     font-family: Arial, Helvetica, sans-serif;
+
     font-size: 28px;
     font-weight: 300;
 
@@ -568,25 +640,78 @@ footer p {
 
 
 /* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 185px;
+
+        padding: 26px 22px;
+    }
+
+    .page-content {
+        margin-left: 185px;
+    }
+
+    .hero h1 {
+        font-size: clamp(64px, 9vw, 120px);
+    }
+}
+
+
+/* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
 
-    header {
-        padding: 22px 6%;
+    body {
+        overflow-x: hidden;
     }
 
-    .logo {
+
+    /* SIDEBAR BECOMES TOP BAR */
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        padding: 20px 6%;
+
+        border-right: none;
+        border-bottom: 1px solid #bbb;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar-top {
+        width: auto;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 0;
+
         font-size: 12px;
     }
 
-    nav {
-        gap: 18px;
+    .sidebar-nav {
+        display: none;
     }
 
-    nav a {
-        font-size: 11px;
+    .sidebar-social {
+        display: none;
+    }
+
+    .page-content {
+        margin-left: 0;
     }
 
 
@@ -686,7 +811,7 @@ footer p {
     }
 
     .album-intro h1 {
-        font-size: clamp(64px, 20vw, 115px);
+        font-size: clamp(60px, 19vw, 105px);
     }
 
     .album-description {
