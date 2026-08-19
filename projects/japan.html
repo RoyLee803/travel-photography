@@ -18,30 +18,75 @@
 <body>
 
 
-<header>
+<!-- =========================================
+     SIDEBAR
+========================================= -->
 
-    <a class="logo" href="../index.html">
-        ROY LEE
-    </a>
+<aside class="sidebar">
 
-    <nav>
+    <div class="sidebar-top">
 
-        <a href="../index.html#projects">
-            Projects
+        <a class="sidebar-logo" href="../index.html">
+            ROY LEE
         </a>
 
-        <a href="../index.html#about">
-            About
+        <nav class="sidebar-nav">
+
+            <a href="../index.html">
+                Main
+            </a>
+
+            <span class="sidebar-label">
+                Projects
+            </span>
+
+            <a href="new-zealand.html">
+                New Zealand
+            </a>
+
+            <a href="japan.html">
+                Japan
+            </a>
+
+        </nav>
+
+    </div>
+
+
+    <div class="sidebar-social">
+
+        <span class="sidebar-label">
+            Social
+        </span>
+
+        <a
+            href="https://instagram.com/kodaek_lee"
+            target="_blank"
+            rel="noopener noreferrer">
+            Instagram
         </a>
 
-    </nav>
+        <a href="mailto:roy00803@gmail.com">
+            Email
+        </a>
 
-</header>
+    </div>
 
+</aside>
+
+
+
+<!-- =========================================
+     PAGE CONTENT
+========================================= -->
+
+<div class="page-content">
 
 
 <main>
 
+
+<!-- ALBUM INTRO -->
 
 <section class="album-intro">
 
@@ -64,34 +109,88 @@
 </section>
 
 
+
+<!-- GALLERY -->
+
 <section class="gallery">
 
-    <img class="gallery-image" src="../images/japan/photo-01.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-02.jpg" alt="Japan">
-    
-    <img class="gallery-image" src="../images/japan/photo-04.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-05.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-06.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-07.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-08.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-09.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-10.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-11.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-12.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-13.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-14.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-15.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-16.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-17.jpg" alt="Japan">
-    <img class="gallery-image" src="../images/japan/photo-18.jpg" alt="Japan">
+    <img class="gallery-image"
+         src="../images/japan/photo-01.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-02.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-04.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-05.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-06.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-07.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-08.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-09.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-10.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-11.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-12.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-13.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-14.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-15.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-16.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-17.jpg"
+         alt="Japan">
+
+    <img class="gallery-image"
+         src="../images/japan/photo-18.jpg"
+         alt="Japan">
 
 </section>
 
 
 
+<!-- BACK TO PROJECTS -->
+
 <section class="album-footer">
 
-    <a href="../index.html">
+    <a href="../index.html#projects">
         ← All Projects
     </a>
 
@@ -111,8 +210,13 @@
 </footer>
 
 
+</div>
 
-<!-- LIGHTBOX -->
+
+
+<!-- =========================================
+     LIGHTBOX
+========================================= -->
 
 <div id="lightbox" class="lightbox">
 
@@ -127,13 +231,11 @@
         src=""
         alt="">
 
-
     <button
         class="lightbox-prev"
         aria-label="Previous image">
         ←
     </button>
-
 
     <button
         class="lightbox-next"
@@ -144,6 +246,10 @@
 </div>
 
 
+
+<!-- =========================================
+     LIGHTBOX SCRIPT
+========================================= -->
 
 <script>
 
@@ -181,8 +287,7 @@ function openLightbox(index) {
 
     lightbox.classList.add('active');
 
-    document.body.style.overflow =
-        'hidden';
+    document.body.style.overflow = 'hidden';
 }
 
 
@@ -212,6 +317,8 @@ function showNext() {
         images[currentIndex].alt;
 }
 
+
+
 function showPrevious() {
 
     currentIndex--;
@@ -226,6 +333,7 @@ function showPrevious() {
     lightboxImage.alt =
         images[currentIndex].alt;
 }
+
 
 
 images.forEach((image, index) => {
