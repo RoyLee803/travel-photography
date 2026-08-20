@@ -1,3 +1,4 @@
+
 /* =========================================
    RESET
 ========================================= */
@@ -39,7 +40,6 @@ body {
     justify-content: space-between;
 
     background: #f2f0ea;
-
     border-right: 1px solid #bbb;
 
     z-index: 1000;
@@ -59,7 +59,6 @@ body {
 
     font-size: 13px;
     font-weight: 600;
-
     letter-spacing: 3px;
 }
 
@@ -79,7 +78,6 @@ body {
     margin-bottom: 6px;
 
     font-size: 8px;
-
     text-transform: uppercase;
     letter-spacing: 2px;
 
@@ -92,8 +90,6 @@ body {
 
 .sidebar-nav a,
 .sidebar-social a {
-    position: relative;
-
     color: #111;
     text-decoration: none;
 
@@ -108,7 +104,6 @@ body {
 .sidebar-nav a:hover,
 .sidebar-social a:hover {
     opacity: 0.45;
-
     transform: translateX(3px);
 }
 
@@ -165,7 +160,6 @@ body {
 
 .projects {
     width: 91%;
-
     margin: 0 auto;
 
     padding-bottom: 150px;
@@ -201,7 +195,7 @@ body {
 }
 
 
-/* Alternating homepage project info */
+/* alternating info layout */
 
 .project-card:nth-of-type(even) .project-info {
     grid-template-columns: 1fr 2fr;
@@ -209,14 +203,12 @@ body {
 
 .project-card:nth-of-type(even) .project-info h2 {
     grid-column: 2;
-
     text-align: right;
 }
 
 .project-card:nth-of-type(even) .project-info p {
     grid-column: 1;
     grid-row: 1;
-
     text-align: left;
 }
 
@@ -227,7 +219,6 @@ body {
     height: min(76vh, 900px);
 
     object-fit: cover;
-
     display: block;
 
     transition:
@@ -237,7 +228,6 @@ body {
 
 .project-card:hover img {
     transform: scale(1.006);
-
     filter: brightness(0.93);
 }
 
@@ -255,11 +245,9 @@ body {
 
 .project-info h2 {
     font-size: clamp(36px, 4vw, 60px);
-
     font-weight: 400;
 
     line-height: 1;
-
     letter-spacing: -0.05em;
 }
 
@@ -269,7 +257,6 @@ body {
     text-align: right;
 
     font-size: 9px;
-
     text-transform: uppercase;
     letter-spacing: 1.8px;
 
@@ -311,11 +298,9 @@ body {
     max-width: 1000px;
 
     font-size: clamp(34px, 4.5vw, 66px);
-
     font-weight: 400;
 
     line-height: 1.08;
-
     letter-spacing: -0.045em;
 }
 
@@ -336,7 +321,6 @@ footer {
 
 footer p {
     font-size: 9px;
-
     letter-spacing: 1px;
 
     text-transform: uppercase;
@@ -350,9 +334,9 @@ footer p {
 ========================================= */
 
 .album-intro {
-    min-height: 68vh;
+    min-height: 58vh;
 
-    padding: 9vh 4.5% 12vh;
+    padding: 8vh 4.5% 9vh;
 
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -364,7 +348,6 @@ footer p {
     grid-column: 2;
 
     font-size: 9px;
-
     text-transform: uppercase;
     letter-spacing: 2px;
 
@@ -374,13 +357,11 @@ footer p {
 .album-intro h1 {
     grid-column: 1;
 
-    font-size: clamp(80px, 11vw, 175px);
-
+    font-size: clamp(72px, 10vw, 155px);
     font-weight: 400;
 
-    line-height: 0.82;
-
-    letter-spacing: -0.075em;
+    line-height: 0.84;
+    letter-spacing: -0.07em;
 }
 
 .album-description {
@@ -398,31 +379,100 @@ footer p {
 
 
 /* =========================================
-   GALLERY — CLEAN REGULAR GRID
+   GALLERY — EDITORIAL 3-COLUMN GRID
 ========================================= */
 
 .gallery {
     width: 91%;
-
     margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 
-    gap: 28px;
+    grid-auto-rows: 145px;
+
+    gap: 10px;
 }
+
+
+/* shared image rules */
 
 .gallery img {
     width: 100%;
-
-    aspect-ratio: 3 / 2;
+    height: 100%;
 
     object-fit: cover;
 
     display: block;
 
-    margin: 0 !important;
+    margin: 0;
+
+    cursor: zoom-in;
+}
+
+
+/* =========================================
+   CONTROLLED EDITORIAL PATTERN
+   6 IMAGE CYCLE
+========================================= */
+
+/* image 1 — medium landscape */
+.gallery img:nth-child(6n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* image 2 — narrower / portrait-ish */
+.gallery img:nth-child(6n + 2) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* image 3 — medium landscape */
+.gallery img:nth-child(6n + 3) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* image 4 — smaller left */
+.gallery img:nth-child(6n + 4) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* image 5 — wider centre */
+.gallery img:nth-child(6n + 5) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* image 6 — smaller right */
+.gallery img:nth-child(6n + 6) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* =========================================
+   OPTIONAL SUBTLE VARIATION
+   Makes some images slightly wider
+   without creating giant full-width images
+========================================= */
+
+.gallery img:nth-child(12n + 5),
+.gallery img:nth-child(12n + 10) {
+    grid-column: span 3;
+}
+
+.gallery img:nth-child(12n + 6),
+.gallery img:nth-child(12n + 11) {
+    grid-column: span 3;
 }
 
 
@@ -433,7 +483,7 @@ footer p {
 .album-footer {
     width: 91%;
 
-    margin: 120px auto 100px;
+    margin: 110px auto 90px;
 
     padding-top: 20px;
 
@@ -442,11 +492,9 @@ footer p {
 
 .album-footer a {
     color: #111;
-
     text-decoration: none;
 
     font-size: 10px;
-
     text-transform: uppercase;
     letter-spacing: 1.5px;
 }
@@ -455,10 +503,6 @@ footer p {
 /* =========================================
    LIGHTBOX — WARM WHITE
 ========================================= */
-
-.gallery-image {
-    cursor: zoom-in;
-}
 
 .lightbox {
     position: fixed;
@@ -498,7 +542,7 @@ footer p {
 }
 
 
-/* Close */
+/* close */
 
 .lightbox-close {
     position: absolute;
@@ -519,7 +563,6 @@ footer p {
 
     font-size: 34px;
     font-weight: 300;
-
     line-height: 1;
 
     cursor: pointer;
@@ -534,7 +577,7 @@ footer p {
 }
 
 
-/* Previous / Next */
+/* arrows */
 
 .lightbox-prev,
 .lightbox-next {
@@ -609,8 +652,28 @@ footer p {
         font-size: clamp(64px, 9vw, 120px);
     }
 
+
+    /* simpler 2-column gallery */
+
     .gallery {
-        gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        grid-auto-rows: auto;
+
+        gap: 12px;
+    }
+
+    .gallery img,
+    .gallery img:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 3 / 2;
+
+        object-fit: cover;
     }
 }
 
@@ -656,10 +719,7 @@ footer p {
         font-size: 12px;
     }
 
-    .sidebar-nav {
-        display: none;
-    }
-
+    .sidebar-nav,
     .sidebar-social {
         display: none;
     }
@@ -683,7 +743,6 @@ footer p {
         font-size: clamp(58px, 18vw, 100px);
 
         line-height: 0.88;
-
         letter-spacing: -0.065em;
     }
 
@@ -755,7 +814,7 @@ footer p {
     .album-intro {
         min-height: auto;
 
-        padding: 80px 6% 100px;
+        padding: 70px 6% 80px;
 
         display: block;
     }
@@ -765,11 +824,11 @@ footer p {
     }
 
     .album-intro h1 {
-        font-size: clamp(60px, 19vw, 105px);
+        font-size: clamp(58px, 18vw, 100px);
     }
 
     .album-description {
-        margin-top: 40px;
+        margin-top: 35px;
     }
 
 
@@ -780,17 +839,22 @@ footer p {
 
         grid-template-columns: 1fr;
 
-        gap: 16px;
+        grid-auto-rows: auto;
+
+        gap: 12px;
     }
 
-    .gallery img {
+    .gallery img,
+    .gallery img:nth-child(n) {
         width: 100%;
+        height: auto;
+
+        grid-column: auto;
+        grid-row: auto;
 
         aspect-ratio: 3 / 2;
 
         object-fit: cover;
-
-        margin: 0 !important;
     }
 
 
@@ -803,7 +867,7 @@ footer p {
     .album-footer {
         width: 88%;
 
-        margin-top: 90px;
+        margin-top: 80px;
     }
 
 
