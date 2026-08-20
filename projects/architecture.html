@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Architecture — Roy Lee</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-top">
+
+        <a class="sidebar-logo" href="../index.html">
+            ROY LEE
+        </a>
+
+        <nav class="sidebar-nav">
+
+            <a href="../index.html">
+                Main
+            </a>
+
+            <span class="sidebar-label">
+                Projects
+            </span>
+
+            <a href="new-zealand.html">
+                New Zealand
+            </a>
+
+            <a href="japan.html">
+                Japan
+            </a>
+
+            <a href="architecture.html">
+                Architecture
+            </a>
+
+        </nav>
+
+    </div>
+
+
+    <div class="sidebar-social">
+
+        <span class="sidebar-label">
+            Social
+        </span>
+
+        <a
+            href="https://instagram.com/kodaek_lee"
+            target="_blank"
+            rel="noopener noreferrer">
+            Instagram
+        </a>
+
+        <a href="mailto:roy00803@gmail.com">
+            Email
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================
+     PAGE CONTENT
+========================================= -->
+
+<div class="page-content">
+
+
+<main>
+
+
+<!-- =========================================
+     ALBUM INTRO
+========================================= -->
+
+<section class="album-intro">
+
+    <p class="album-location">
+        ARCHITECTURE · 2026
+    </p>
+
+    <h1>
+        Architecture
+    </h1>
+
+    <p class="album-description">
+        A study of structure, proportion, material and space —
+        architecture observed through light, geometry and detail.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================
+     GALLERY
+========================================= -->
+
+<section class="gallery">
+
+    <img
+        class="gallery-image"
+        src="../images/architecture/17907024962615075.webp"
+        alt="Architecture">
+
+    <img
+        class="gallery-image"
+        src="../images/architecture/17955820216816764.webp"
+        alt="Architecture">
+
+    <img
+        class="gallery-image"
+        src="../images/architecture/17980861741577440.webp"
+        alt="Architecture">
+
+    <img
+        class="gallery-image"
+        src="../images/architecture/18192814117136074.jpg"
+        alt="Architecture">
+
+    <img
+        class="gallery-image"
+        src="../images/architecture/18219094912199614.webp"
+        alt="Architecture">
+
+</section>
+
+
+
+<!-- =========================================
+     BACK TO PROJECTS
+========================================= -->
+
+<section class="album-footer">
+
+    <a href="../index.html#projects">
+        ← All Projects
+    </a>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        © 2026 Roy Lee
+    </p>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =========================================
+     LIGHTBOX
+========================================= -->
+
+<div id="lightbox" class="lightbox">
+
+    <button
+        class="lightbox-close"
+        aria-label="Close image">
+        ×
+    </button>
+
+
+    <img
+        id="lightbox-image"
+        src=""
+        alt="">
+
+
+    <button
+        class="lightbox-prev"
+        aria-label="Previous image">
+        ←
+    </button>
+
+
+    <button
+        class="lightbox-next"
+        aria-label="Next image">
+        →
+    </button>
+
+</div>
+
+
+
+<!-- =========================================
+     LIGHTBOX SCRIPT
+========================================= -->
+
+<script>
+
+const images =
+    document.querySelectorAll('.gallery-image');
+
+const lightbox =
+    document.getElementById('lightbox');
+
+const lightboxImage =
+    document.getElementById('lightbox-image');
+
+const closeButton =
+    document.querySelector('.lightbox-close');
+
+const prevButton =
+    document.querySelector('.lightbox-prev');
+
+const nextButton =
+    document.querySelector('.lightbox-next');
+
+let currentIndex = 0;
+
+
+
+function openLightbox(index) {
+
+    currentIndex = index;
+
+    lightboxImage.src =
+        images[currentIndex].src;
+
+    lightboxImage.alt =
+        images[currentIndex].alt;
+
+    lightbox.classList.add('active');
+
+    document.body.style.overflow = 'hidden';
+}
+
+
+
+function closeLightbox() {
+
+    lightbox.classList.remove('active');
+
+    document.body.style.overflow = '';
+}
+
+
+
+function showNext() {
+
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+
+    lightboxImage.src =
+        images[currentIndex].src;
+
+    lightboxImage.alt =
+        images[currentIndex].alt;
+}
+
+
+
+function showPrevious() {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    lightboxImage.src =
+        images[currentIndex].src;
+
+    lightboxImage.alt =
+        images[currentIndex].alt;
+}
+
+
+
+images.forEach((image, index) => {
+
+    image.addEventListener('click', () => {
+
+        openLightbox(index);
+
+    });
+
+});
+
+
+
+closeButton.addEventListener(
+    'click',
+    closeLightbox
+);
+
+
+
+nextButton.addEventListener(
+    'click',
+    showNext
+);
+
+
+
+prevButton.addEventListener(
+    'click',
+    showPrevious
+);
+
+
+
+lightbox.addEventListener(
+    'click',
+    (event) => {
+
+        if (event.target === lightbox) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+
+document.addEventListener(
+    'keydown',
+    (event) => {
+
+        if (
+            !lightbox.classList.contains('active')
+        ) {
+            return;
+        }
+
+        if (event.key === 'Escape') {
+
+            closeLightbox();
+
+        }
+
+        if (event.key === 'ArrowRight') {
+
+            showNext();
+
+        }
+
+        if (event.key === 'ArrowLeft') {
+
+            showPrevious();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
