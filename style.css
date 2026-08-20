@@ -67,7 +67,6 @@ body {
 .sidebar-social {
     display: flex;
     flex-direction: column;
-
     align-items: flex-start;
 
     gap: 11px;
@@ -82,7 +81,6 @@ body {
     font-size: 8px;
 
     text-transform: uppercase;
-
     letter-spacing: 2px;
 
     color: #888;
@@ -115,7 +113,7 @@ body {
 }
 
 
-/* Main site area beside sidebar */
+/* Main area beside sidebar */
 
 .page-content {
     margin-left: 220px;
@@ -141,11 +139,9 @@ body {
     max-width: 1250px;
 
     font-size: clamp(70px, 9vw, 155px);
-
     font-weight: 400;
 
     line-height: 0.82;
-
     letter-spacing: -0.075em;
 }
 
@@ -186,7 +182,6 @@ body {
     border-top: 1px solid #bbb;
 
     font-size: 9px;
-
     letter-spacing: 2.2px;
 
     color: #666;
@@ -206,7 +201,7 @@ body {
 }
 
 
-/* Alternating project layout */
+/* Alternating homepage project info */
 
 .project-card:nth-of-type(even) .project-info {
     grid-template-columns: 1fr 2fr;
@@ -276,7 +271,6 @@ body {
     font-size: 9px;
 
     text-transform: uppercase;
-
     letter-spacing: 1.8px;
 
     color: #666;
@@ -304,7 +298,6 @@ body {
     border-top: 1px solid #bbb;
 
     font-size: 9px;
-
     letter-spacing: 2.2px;
 
     color: #666;
@@ -373,7 +366,6 @@ footer p {
     font-size: 9px;
 
     text-transform: uppercase;
-
     letter-spacing: 2px;
 
     color: #666;
@@ -406,7 +398,7 @@ footer p {
 
 
 /* =========================================
-   GALLERY — REGULAR GRID
+   GALLERY — CLEAN REGULAR GRID
 ========================================= */
 
 .gallery {
@@ -456,13 +448,12 @@ footer p {
     font-size: 10px;
 
     text-transform: uppercase;
-
     letter-spacing: 1.5px;
 }
 
 
 /* =========================================
-   LIGHTBOX
+   LIGHTBOX — WARM WHITE
 ========================================= */
 
 .gallery-image {
@@ -475,7 +466,7 @@ footer p {
 
     z-index: 9999;
 
-    background: rgba(8, 8, 8, 0.97);
+    background: rgba(242, 240, 234, 0.98);
 
     display: flex;
     align-items: center;
@@ -506,6 +497,9 @@ footer p {
     user-select: none;
 }
 
+
+/* Close */
+
 .lightbox-close {
     position: absolute;
 
@@ -517,10 +511,9 @@ footer p {
     padding: 8px;
 
     border: 0;
-
     background: transparent;
 
-    color: #fff;
+    color: #111;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -531,7 +524,7 @@ footer p {
 
     cursor: pointer;
 
-    opacity: 0.7;
+    opacity: 0.55;
 
     transition: opacity 0.2s ease;
 }
@@ -539,6 +532,9 @@ footer p {
 .lightbox-close:hover {
     opacity: 1;
 }
+
+
+/* Previous / Next */
 
 .lightbox-prev,
 .lightbox-next {
@@ -553,10 +549,9 @@ footer p {
     padding: 15px;
 
     border: 0;
-
     background: transparent;
 
-    color: #fff;
+    color: #111;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -565,7 +560,7 @@ footer p {
 
     cursor: pointer;
 
-    opacity: 0.55;
+    opacity: 0.4;
 
     transition:
         opacity 0.2s ease,
@@ -631,7 +626,7 @@ footer p {
     }
 
 
-    /* SIDEBAR BECOMES TOP BAR */
+    /* SIDEBAR → TOP BAR */
 
     .sidebar {
         position: relative;
