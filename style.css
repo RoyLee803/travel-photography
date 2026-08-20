@@ -1,4 +1,3 @@
-
 /* =========================================
    RESET
 ========================================= */
@@ -40,6 +39,7 @@ body {
     justify-content: space-between;
 
     background: #f2f0ea;
+
     border-right: 1px solid #bbb;
 
     z-index: 1000;
@@ -59,6 +59,7 @@ body {
 
     font-size: 13px;
     font-weight: 600;
+
     letter-spacing: 3px;
 }
 
@@ -78,7 +79,9 @@ body {
     margin-bottom: 6px;
 
     font-size: 8px;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
 
     color: #888;
@@ -104,11 +107,14 @@ body {
 .sidebar-nav a:hover,
 .sidebar-social a:hover {
     opacity: 0.45;
+
     transform: translateX(3px);
 }
 
 
-/* Main area beside sidebar */
+/* =========================================
+   PAGE CONTENT
+========================================= */
 
 .page-content {
     margin-left: 220px;
@@ -125,6 +131,7 @@ body {
     padding: 7vh 4.5% 11vh;
 
     display: grid;
+
     grid-template-columns: 3fr 1fr;
 
     align-items: end;
@@ -134,9 +141,11 @@ body {
     max-width: 1250px;
 
     font-size: clamp(70px, 9vw, 155px);
+
     font-weight: 400;
 
     line-height: 0.82;
+
     letter-spacing: -0.075em;
 }
 
@@ -148,6 +157,7 @@ body {
     margin-bottom: 18px;
 
     font-size: 13px;
+
     line-height: 1.7;
 
     color: #666;
@@ -160,6 +170,7 @@ body {
 
 .projects {
     width: 91%;
+
     margin: 0 auto;
 
     padding-bottom: 150px;
@@ -171,11 +182,13 @@ body {
     display: block;
 
     margin-bottom: 22px;
+
     padding-top: 18px;
 
     border-top: 1px solid #bbb;
 
     font-size: 9px;
+
     letter-spacing: 2.2px;
 
     color: #666;
@@ -187,6 +200,7 @@ body {
     margin-bottom: 150px;
 
     color: #111;
+
     text-decoration: none;
 }
 
@@ -195,7 +209,7 @@ body {
 }
 
 
-/* alternating info layout */
+/* alternating homepage project information */
 
 .project-card:nth-of-type(even) .project-info {
     grid-template-columns: 1fr 2fr;
@@ -203,12 +217,14 @@ body {
 
 .project-card:nth-of-type(even) .project-info h2 {
     grid-column: 2;
+
     text-align: right;
 }
 
 .project-card:nth-of-type(even) .project-info p {
     grid-column: 1;
     grid-row: 1;
+
     text-align: left;
 }
 
@@ -219,6 +235,7 @@ body {
     height: min(76vh, 900px);
 
     object-fit: cover;
+
     display: block;
 
     transition:
@@ -228,16 +245,19 @@ body {
 
 .project-card:hover img {
     transform: scale(1.006);
+
     filter: brightness(0.93);
 }
 
 .project-info {
     margin-top: 16px;
+
     padding-top: 16px;
 
     border-top: 1px solid #bbb;
 
     display: grid;
+
     grid-template-columns: 2fr 1fr;
 
     align-items: start;
@@ -245,9 +265,11 @@ body {
 
 .project-info h2 {
     font-size: clamp(36px, 4vw, 60px);
+
     font-weight: 400;
 
     line-height: 1;
+
     letter-spacing: -0.05em;
 }
 
@@ -257,7 +279,9 @@ body {
     text-align: right;
 
     font-size: 9px;
+
     text-transform: uppercase;
+
     letter-spacing: 1.8px;
 
     color: #666;
@@ -280,11 +304,13 @@ body {
     display: block;
 
     margin-bottom: 40px;
+
     padding-top: 18px;
 
     border-top: 1px solid #bbb;
 
     font-size: 9px;
+
     letter-spacing: 2.2px;
 
     color: #666;
@@ -298,9 +324,11 @@ body {
     max-width: 1000px;
 
     font-size: clamp(34px, 4.5vw, 66px);
+
     font-weight: 400;
 
     line-height: 1.08;
+
     letter-spacing: -0.045em;
 }
 
@@ -321,6 +349,7 @@ footer {
 
 footer p {
     font-size: 9px;
+
     letter-spacing: 1px;
 
     text-transform: uppercase;
@@ -339,6 +368,7 @@ footer p {
     padding: 8vh 4.5% 9vh;
 
     display: grid;
+
     grid-template-columns: 3fr 1fr;
 
     align-items: end;
@@ -348,7 +378,9 @@ footer p {
     grid-column: 2;
 
     font-size: 9px;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
 
     color: #666;
@@ -358,9 +390,11 @@ footer p {
     grid-column: 1;
 
     font-size: clamp(72px, 10vw, 155px);
+
     font-weight: 400;
 
     line-height: 0.84;
+
     letter-spacing: -0.07em;
 }
 
@@ -372,6 +406,7 @@ footer p {
     margin-top: 35px;
 
     font-size: 13px;
+
     line-height: 1.7;
 
     color: #666;
@@ -379,100 +414,42 @@ footer p {
 
 
 /* =========================================
-   GALLERY — EDITORIAL 3-COLUMN GRID
+   GALLERY
+   3 COLUMNS — DESKTOP + TABLET
 ========================================= */
 
 .gallery {
     width: 91%;
+
     margin: 0 auto;
 
-    display: grid;
+    display: grid !important;
 
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-
-    grid-auto-rows: 145px;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr)) !important;
 
     gap: 10px;
 }
 
-
-/* shared image rules */
-
-.gallery img {
+.gallery img,
+.gallery .gallery-image {
     width: 100%;
-    height: 100%;
+
+    height: auto;
+
+    aspect-ratio: 3 / 2;
 
     object-fit: cover;
 
     display: block;
 
-    margin: 0;
+    grid-column: auto !important;
+
+    grid-row: auto !important;
+
+    margin: 0 !important;
 
     cursor: zoom-in;
-}
-
-
-/* =========================================
-   CONTROLLED EDITORIAL PATTERN
-   6 IMAGE CYCLE
-========================================= */
-
-/* image 1 — medium landscape */
-.gallery img:nth-child(6n + 1) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-
-/* image 2 — narrower / portrait-ish */
-.gallery img:nth-child(6n + 2) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-
-/* image 3 — medium landscape */
-.gallery img:nth-child(6n + 3) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-
-/* image 4 — smaller left */
-.gallery img:nth-child(6n + 4) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-
-/* image 5 — wider centre */
-.gallery img:nth-child(6n + 5) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-
-/* image 6 — smaller right */
-.gallery img:nth-child(6n + 6) {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-
-/* =========================================
-   OPTIONAL SUBTLE VARIATION
-   Makes some images slightly wider
-   without creating giant full-width images
-========================================= */
-
-.gallery img:nth-child(12n + 5),
-.gallery img:nth-child(12n + 10) {
-    grid-column: span 3;
-}
-
-.gallery img:nth-child(12n + 6),
-.gallery img:nth-child(12n + 11) {
-    grid-column: span 3;
 }
 
 
@@ -492,10 +469,13 @@ footer p {
 
 .album-footer a {
     color: #111;
+
     text-decoration: none;
 
     font-size: 10px;
+
     text-transform: uppercase;
+
     letter-spacing: 1.5px;
 }
 
@@ -506,6 +486,7 @@ footer p {
 
 .lightbox {
     position: fixed;
+
     inset: 0;
 
     z-index: 9999;
@@ -513,10 +494,13 @@ footer p {
     background: rgba(242, 240, 234, 0.98);
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     opacity: 0;
+
     visibility: hidden;
 
     transition:
@@ -526,14 +510,17 @@ footer p {
 
 .lightbox.active {
     opacity: 1;
+
     visibility: visible;
 }
 
 .lightbox img {
     max-width: 92vw;
+
     max-height: 90vh;
 
     width: auto;
+
     height: auto;
 
     object-fit: contain;
@@ -542,12 +529,15 @@ footer p {
 }
 
 
-/* close */
+/* =========================================
+   LIGHTBOX CLOSE
+========================================= */
 
 .lightbox-close {
     position: absolute;
 
     top: 24px;
+
     right: 30px;
 
     z-index: 10001;
@@ -555,6 +545,7 @@ footer p {
     padding: 8px;
 
     border: 0;
+
     background: transparent;
 
     color: #111;
@@ -562,7 +553,9 @@ footer p {
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 34px;
+
     font-weight: 300;
+
     line-height: 1;
 
     cursor: pointer;
@@ -577,7 +570,9 @@ footer p {
 }
 
 
-/* arrows */
+/* =========================================
+   LIGHTBOX ARROWS
+========================================= */
 
 .lightbox-prev,
 .lightbox-next {
@@ -592,6 +587,7 @@ footer p {
     padding: 15px;
 
     border: 0;
+
     background: transparent;
 
     color: #111;
@@ -599,6 +595,7 @@ footer p {
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 28px;
+
     font-weight: 300;
 
     cursor: pointer;
@@ -634,6 +631,7 @@ footer p {
 
 /* =========================================
    TABLET
+   KEEP 3-COLUMN GALLERY
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -652,29 +650,11 @@ footer p {
         font-size: clamp(64px, 9vw, 120px);
     }
 
-
-    /* simpler 2-column gallery */
-
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-        grid-auto-rows: auto;
-
-        gap: 12px;
-    }
-
-    .gallery img,
-    .gallery img:nth-child(n) {
-        grid-column: auto;
-        grid-row: auto;
-
-        width: 100%;
-        height: auto;
-
-        aspect-ratio: 3 / 2;
-
-        object-fit: cover;
-    }
+    /*
+       IMPORTANT:
+       No gallery rule here.
+       Gallery stays 3 columns.
+    */
 }
 
 
@@ -689,23 +669,29 @@ footer p {
     }
 
 
-    /* SIDEBAR → TOP BAR */
+    /* =====================================
+       SIDEBAR → TOP BAR
+    ===================================== */
 
     .sidebar {
         position: relative;
 
         width: 100%;
+
         height: auto;
 
         padding: 20px 6%;
 
         border-right: none;
+
         border-bottom: 1px solid #bbb;
 
         display: flex;
+
         flex-direction: row;
 
         justify-content: space-between;
+
         align-items: center;
     }
 
@@ -729,7 +715,9 @@ footer p {
     }
 
 
-    /* HERO */
+    /* =====================================
+       HERO
+    ===================================== */
 
     .hero {
         min-height: 68vh;
@@ -743,6 +731,7 @@ footer p {
         font-size: clamp(58px, 18vw, 100px);
 
         line-height: 0.88;
+
         letter-spacing: -0.065em;
     }
 
@@ -753,7 +742,9 @@ footer p {
     }
 
 
-    /* PROJECTS */
+    /* =====================================
+       PROJECTS
+    ===================================== */
 
     .projects {
         width: 88%;
@@ -792,13 +783,16 @@ footer p {
 
     .project-info p {
         margin-top: 8px;
+
         padding: 0;
 
         text-align: left;
     }
 
 
-    /* ABOUT */
+    /* =====================================
+       ABOUT
+    ===================================== */
 
     .about {
         padding: 80px 6% 120px;
@@ -809,7 +803,9 @@ footer p {
     }
 
 
-    /* ALBUM */
+    /* =====================================
+       ALBUM
+    ===================================== */
 
     .album-intro {
         min-height: auto;
@@ -832,33 +828,37 @@ footer p {
     }
 
 
-    /* GALLERY */
+    /* =====================================
+       GALLERY — PHONE
+    ===================================== */
 
     .gallery {
         width: 88%;
 
-        grid-template-columns: 1fr;
-
-        grid-auto-rows: auto;
+        grid-template-columns: 1fr !important;
 
         gap: 12px;
     }
 
     .gallery img,
-    .gallery img:nth-child(n) {
+    .gallery .gallery-image {
         width: 100%;
-        height: auto;
 
-        grid-column: auto;
-        grid-row: auto;
+        height: auto;
 
         aspect-ratio: 3 / 2;
 
         object-fit: cover;
+
+        grid-column: auto !important;
+
+        grid-row: auto !important;
     }
 
 
-    /* FOOTERS */
+    /* =====================================
+       FOOTERS
+    ===================================== */
 
     footer {
         width: 88%;
@@ -871,15 +871,19 @@ footer p {
     }
 
 
-    /* LIGHTBOX */
+    /* =====================================
+       LIGHTBOX
+    ===================================== */
 
     .lightbox img {
         max-width: 96vw;
+
         max-height: 84vh;
     }
 
     .lightbox-close {
         top: 14px;
+
         right: 14px;
 
         font-size: 30px;
@@ -888,6 +892,7 @@ footer p {
     .lightbox-prev,
     .lightbox-next {
         top: auto;
+
         bottom: 24px;
 
         transform: none;
@@ -906,65 +911,5 @@ footer p {
     .lightbox-prev:hover,
     .lightbox-next:hover {
         transform: none;
-    }
-}
-
-/* =========================================
-   FINAL GALLERY OVERRIDE
-   3 columns desktop / 1 column mobile
-========================================= */
-
-@media (min-width: 701px) {
-
-    .gallery {
-        width: 91%;
-        margin: 0 auto;
-
-        display: grid;
-
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-
-        grid-auto-rows: auto;
-
-        gap: 10px;
-    }
-
-    .gallery img,
-    .gallery img:nth-child(n) {
-        grid-column: auto;
-        grid-row: auto;
-
-        width: 100%;
-        height: auto;
-
-        aspect-ratio: 3 / 2;
-
-        object-fit: cover;
-
-        display: block;
-
-        margin: 0;
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    .gallery {
-        width: 88%;
-
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-    .gallery img,
-    .gallery img:nth-child(n) {
-        width: 100%;
-        height: auto;
-
-        aspect-ratio: 3 / 2;
-
-        object-fit: cover;
     }
 }
