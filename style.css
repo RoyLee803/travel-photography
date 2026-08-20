@@ -147,6 +147,7 @@ body {
 
 /* =========================================
    HERO
+   Kept for compatibility if needed later
 ========================================= */
 
 .hero {
@@ -197,6 +198,7 @@ body {
 
     margin: 0 auto;
 
+    padding-top: 70px;
     padding-bottom: 150px;
 }
 
@@ -441,57 +443,52 @@ footer p {
 
 /* =========================================
    GALLERY
-   TRUE VERTICAL EDITORIAL GRID
+   3-COLUMN VERTICAL EDITORIAL / MASONRY
 ========================================= */
 
 .gallery {
-    width: 96%;
+    width: 92%;
 
     margin: 0 auto;
 
-    display: grid !important;
+    display: block !important;
 
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr)) !important;
+    column-count: 3;
 
-    /*
-       Small row units allow different
-       vertical heights without changing width.
-    */
-
-    grid-auto-rows: 8px;
-
-    grid-auto-flow: dense;
-
-    column-gap: 22px;
-
-    row-gap: 22px;
+    column-gap: 34px;
 }
 
 
-/* shared gallery image rules */
+/*
+   IMPORTANT:
+
+   All 3 columns have the same width.
+
+   The photographs keep their natural
+   aspect ratios, so variation happens
+   vertically rather than horizontally.
+*/
 
 .gallery img,
 .gallery .gallery-image {
     width: 100% !important;
 
-    height: 100% !important;
+    height: auto !important;
 
     display: block;
 
-    object-fit: cover;
+    margin: 0 0 34px 0 !important;
+
+    object-fit: contain;
 
     aspect-ratio: auto !important;
 
-    margin: 0 !important;
+    break-inside: avoid;
 
-    /*
-       CRITICAL:
-       every photo always stays exactly
-       one column wide
-    */
+    -webkit-column-break-inside: avoid;
 
-    grid-column: span 1 !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
 
     cursor: zoom-in;
 
@@ -502,99 +499,6 @@ footer p {
 
     will-change: transform;
 }
-
-
-/* =========================================
-   VERTICAL HEIGHT PATTERN
-   ONLY HEIGHT CHANGES — NEVER WIDTH
-========================================= */
-
-
-/* 01 — medium */
-
-.gallery img:nth-child(12n + 1) {
-    grid-row: span 34 !important;
-}
-
-
-/* 02 — tall */
-
-.gallery img:nth-child(12n + 2) {
-    grid-row: span 43 !important;
-}
-
-
-/* 03 — short */
-
-.gallery img:nth-child(12n + 3) {
-    grid-row: span 28 !important;
-}
-
-
-/* 04 — tall */
-
-.gallery img:nth-child(12n + 4) {
-    grid-row: span 42 !important;
-}
-
-
-/* 05 — medium */
-
-.gallery img:nth-child(12n + 5) {
-    grid-row: span 35 !important;
-}
-
-
-/* 06 — short */
-
-.gallery img:nth-child(12n + 6) {
-    grid-row: span 29 !important;
-}
-
-
-/* 07 — short */
-
-.gallery img:nth-child(12n + 7) {
-    grid-row: span 28 !important;
-}
-
-
-/* 08 — tall */
-
-.gallery img:nth-child(12n + 8) {
-    grid-row: span 44 !important;
-}
-
-
-/* 09 — medium */
-
-.gallery img:nth-child(12n + 9) {
-    grid-row: span 35 !important;
-}
-
-
-/* 10 — tall */
-
-.gallery img:nth-child(12n + 10) {
-    grid-row: span 42 !important;
-}
-
-
-/* 11 — short */
-
-.gallery img:nth-child(12n + 11) {
-    grid-row: span 29 !important;
-}
-
-
-/* 12 — medium */
-
-.gallery img:nth-child(12n + 12) {
-    grid-row: span 35 !important;
-}
-
-
-/* hover */
 
 .gallery img:hover,
 .gallery .gallery-image:hover {
@@ -611,7 +515,7 @@ footer p {
 .album-footer {
     width: 91%;
 
-    margin: 110px auto 90px;
+    margin: 120px auto 90px;
 
     padding-top: 20px;
 
@@ -825,6 +729,40 @@ footer p {
     .hero h1 {
         font-size: clamp(64px, 9vw, 120px);
     }
+
+    .gallery {
+        width: 92%;
+
+        column-count: 3;
+
+        column-gap: 24px;
+    }
+
+    .gallery img,
+    .gallery .gallery-image {
+        margin-bottom: 24px !important;
+    }
+}
+
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .gallery {
+        width: 92%;
+
+        column-count: 2;
+
+        column-gap: 24px;
+    }
+
+    .gallery img,
+    .gallery .gallery-image {
+        margin-bottom: 24px !important;
+    }
 }
 
 
@@ -913,6 +851,7 @@ footer p {
     .projects {
         width: 88%;
 
+        padding-top: 50px;
         padding-bottom: 100px;
     }
 
@@ -988,36 +927,27 @@ footer p {
     }
 
 
-    /* GALLERY — MOBILE */
+    /* GALLERY */
 
     .gallery {
-        width: 92%;
+        width: 90%;
 
-        display: grid !important;
+        column-count: 1;
 
-        grid-template-columns: 1fr !important;
-
-        grid-auto-rows: auto !important;
-
-        gap: 10px;
+        column-gap: 0;
     }
 
     .gallery img,
-    .gallery .gallery-image,
-    .gallery img:nth-child(n) {
+    .gallery .gallery-image {
         width: 100% !important;
 
         height: auto !important;
 
-        grid-column: auto !important;
-
-        grid-row: auto !important;
+        margin-bottom: 22px !important;
 
         aspect-ratio: auto !important;
 
         object-fit: contain;
-
-        margin: 0 !important;
     }
 
 
