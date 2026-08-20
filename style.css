@@ -913,3 +913,133 @@ footer p {
         transform: none;
     }
 }
+
+/* =========================================
+   FINAL EDITORIAL GALLERY
+   Inspired by justified photography layouts
+========================================= */
+
+
+/* DESKTOP + TABLET */
+
+@media (min-width: 701px) {
+
+    .gallery {
+        width: 91%;
+
+        margin: 0 auto;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(12, minmax(0, 1fr)) !important;
+
+        grid-auto-flow: row dense;
+
+        grid-auto-rows:
+            clamp(190px, 18vw, 300px);
+
+        gap: 8px !important;
+    }
+
+
+    .gallery img,
+    .gallery .gallery-image {
+
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: cover;
+
+        display: block;
+
+        margin: 0 !important;
+
+        cursor: zoom-in;
+    }
+
+
+    /* =====================================
+       ROW 1
+       medium / narrow / wide
+    ===================================== */
+
+    .gallery img:nth-child(6n + 1) {
+        grid-column: span 4 !important;
+        grid-row: span 1 !important;
+    }
+
+    .gallery img:nth-child(6n + 2) {
+        grid-column: span 3 !important;
+        grid-row: span 1 !important;
+    }
+
+    .gallery img:nth-child(6n + 3) {
+        grid-column: span 5 !important;
+        grid-row: span 1 !important;
+    }
+
+
+    /* =====================================
+       ROW 2
+       narrow / wide / medium
+    ===================================== */
+
+    .gallery img:nth-child(6n + 4) {
+        grid-column: span 3 !important;
+        grid-row: span 1 !important;
+    }
+
+    .gallery img:nth-child(6n + 5) {
+        grid-column: span 5 !important;
+        grid-row: span 1 !important;
+    }
+
+    .gallery img:nth-child(6n + 6) {
+        grid-column: span 4 !important;
+        grid-row: span 1 !important;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .gallery {
+        width: 88%;
+
+        margin: 0 auto;
+
+        display: grid !important;
+
+        grid-template-columns: 1fr !important;
+
+        grid-auto-rows: auto !important;
+
+        gap: 10px !important;
+    }
+
+
+    .gallery img,
+    .gallery .gallery-image,
+    .gallery img:nth-child(n) {
+
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        width: 100% !important;
+
+        height: auto !important;
+
+        aspect-ratio: 3 / 2;
+
+        object-fit: cover;
+
+        margin: 0 !important;
+    }
+
+}
