@@ -14,9 +14,25 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+
     background: #f2f0ea;
     color: #111;
+
     -webkit-font-smoothing: antialiased;
+
+    overflow-x: hidden;
+
+    animation: pageFadeIn 0.55s ease both;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 
@@ -26,6 +42,7 @@ body {
 
 .sidebar {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -61,12 +78,21 @@ body {
     font-weight: 600;
 
     letter-spacing: 3px;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.sidebar-logo:hover {
+    opacity: 0.55;
 }
 
 .sidebar-nav,
 .sidebar-social {
     display: flex;
     flex-direction: column;
+
     align-items: flex-start;
 
     gap: 11px;
@@ -100,15 +126,15 @@ body {
     line-height: 1.4;
 
     transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+        opacity 0.25s ease,
+        transform 0.25s ease;
 }
 
 .sidebar-nav a:hover,
 .sidebar-social a:hover {
-    opacity: 0.45;
+    opacity: 0.48;
 
-    transform: translateX(3px);
+    transform: translateX(4px);
 }
 
 
@@ -202,6 +228,8 @@ body {
     color: #111;
 
     text-decoration: none;
+
+    overflow: hidden;
 }
 
 .project-card:last-child {
@@ -209,7 +237,7 @@ body {
 }
 
 
-/* alternating homepage project information */
+/* alternating project information */
 
 .project-card:nth-of-type(even) .project-info {
     grid-template-columns: 1fr 2fr;
@@ -239,14 +267,14 @@ body {
     display: block;
 
     transition:
-        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
         filter 0.5s ease;
 }
 
 .project-card:hover img {
-    transform: scale(1.006);
+    transform: scale(1.012);
 
-    filter: brightness(0.93);
+    filter: brightness(0.96);
 }
 
 .project-info {
@@ -415,41 +443,67 @@ footer p {
 
 /* =========================================
    GALLERY
-   3 COLUMNS — DESKTOP + TABLET
+   3-COLUMN VERTICAL EDITORIAL / MASONRY
 ========================================= */
 
 .gallery {
-    width: 91%;
+    width: 96%;
 
     margin: 0 auto;
 
-    display: grid !important;
+    display: block !important;
 
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr)) !important;
+    column-count: 3;
 
-    gap: 10px;
+    column-gap: 8px;
 }
+
+
+/*
+   Each photo keeps its natural ratio.
+
+   This creates the vertical variation:
+   portrait photographs remain taller,
+   landscape photographs remain shorter.
+*/
 
 .gallery img,
 .gallery .gallery-image {
-    width: 100%;
+    width: 100% !important;
 
-    height: auto;
-
-    aspect-ratio: 3 / 2;
-
-    object-fit: cover;
+    height: auto !important;
 
     display: block;
+
+    margin: 0 0 8px 0 !important;
+
+    object-fit: contain;
+
+    aspect-ratio: auto !important;
+
+    break-inside: avoid;
+
+    -webkit-column-break-inside: avoid;
 
     grid-column: auto !important;
 
     grid-row: auto !important;
 
-    margin: 0 !important;
-
     cursor: zoom-in;
+
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.35s ease,
+        opacity 0.35s ease;
+
+    will-change: transform;
+}
+
+.gallery img:hover,
+.gallery .gallery-image:hover {
+    transform: scale(1.008);
+
+    filter: brightness(0.97);
 }
 
 
@@ -477,6 +531,14 @@ footer p {
     text-transform: uppercase;
 
     letter-spacing: 1.5px;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.album-footer a:hover {
+    opacity: 0.5;
 }
 
 
@@ -491,7 +553,7 @@ footer p {
 
     z-index: 9999;
 
-    background: rgba(242, 240, 234, 0.98);
+    background: rgba(242, 240, 234, 0.985);
 
     display: flex;
 
@@ -504,8 +566,8 @@ footer p {
     visibility: hidden;
 
     transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+        opacity 0.35s ease,
+        visibility 0.35s ease;
 }
 
 .lightbox.active {
@@ -526,6 +588,20 @@ footer p {
     object-fit: contain;
 
     user-select: none;
+
+    opacity: 0;
+
+    transform: scale(0.985);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lightbox.active img {
+    opacity: 1;
+
+    transform: scale(1);
 }
 
 
@@ -560,13 +636,17 @@ footer p {
 
     cursor: pointer;
 
-    opacity: 0.55;
+    opacity: 0.5;
 
-    transition: opacity 0.2s ease;
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease;
 }
 
 .lightbox-close:hover {
     opacity: 1;
+
+    transform: scale(1.05);
 }
 
 
@@ -600,11 +680,11 @@ footer p {
 
     cursor: pointer;
 
-    opacity: 0.4;
+    opacity: 0.38;
 
     transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+        opacity 0.22s ease,
+        transform 0.22s ease;
 }
 
 .lightbox-prev:hover,
@@ -621,17 +701,16 @@ footer p {
 }
 
 .lightbox-prev:hover {
-    transform: translate(-3px, -50%);
+    transform: translate(-4px, -50%);
 }
 
 .lightbox-next:hover {
-    transform: translate(3px, -50%);
+    transform: translate(4px, -50%);
 }
 
 
 /* =========================================
    TABLET
-   KEEP 3-COLUMN GALLERY
 ========================================= */
 
 @media (max-width: 1000px) {
@@ -649,12 +728,23 @@ footer p {
     .hero h1 {
         font-size: clamp(64px, 9vw, 120px);
     }
+}
 
-    /*
-       IMPORTANT:
-       No gallery rule here.
-       Gallery stays 3 columns.
-    */
+
+/* =========================================
+   SMALL TABLET
+   MASONRY → 2 COLUMNS
+========================================= */
+
+@media (max-width: 900px) {
+
+    .gallery {
+        width: 94%;
+
+        column-count: 2;
+
+        column-gap: 8px;
+    }
 }
 
 
@@ -829,30 +919,28 @@ footer p {
 
 
     /* =====================================
-       GALLERY — PHONE
+       GALLERY — MOBILE
     ===================================== */
 
     .gallery {
-        width: 88%;
+        width: 92%;
 
-        grid-template-columns: 1fr !important;
+        column-count: 1;
 
-        gap: 12px;
+        column-gap: 0;
     }
 
     .gallery img,
     .gallery .gallery-image {
-        width: 100%;
+        width: 100% !important;
 
-        height: auto;
+        height: auto !important;
 
-        aspect-ratio: 3 / 2;
+        margin-bottom: 10px !important;
 
-        object-fit: cover;
+        aspect-ratio: auto !important;
 
-        grid-column: auto !important;
-
-        grid-row: auto !important;
+        object-fit: contain;
     }
 
 
@@ -914,132 +1002,22 @@ footer p {
     }
 }
 
-/* =========================================
-   FINAL EDITORIAL GALLERY
-   Inspired by justified photography layouts
-========================================= */
-
-
-/* DESKTOP + TABLET */
-
-@media (min-width: 701px) {
-
-    .gallery {
-        width: 91%;
-
-        margin: 0 auto;
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(12, minmax(0, 1fr)) !important;
-
-        grid-auto-flow: row dense;
-
-        grid-auto-rows:
-            clamp(190px, 18vw, 300px);
-
-        gap: 8px !important;
-    }
-
-
-    .gallery img,
-    .gallery .gallery-image {
-
-        width: 100% !important;
-        height: 100% !important;
-
-        object-fit: cover;
-
-        display: block;
-
-        margin: 0 !important;
-
-        cursor: zoom-in;
-    }
-
-
-    /* =====================================
-       ROW 1
-       medium / narrow / wide
-    ===================================== */
-
-    .gallery img:nth-child(6n + 1) {
-        grid-column: span 4 !important;
-        grid-row: span 1 !important;
-    }
-
-    .gallery img:nth-child(6n + 2) {
-        grid-column: span 3 !important;
-        grid-row: span 1 !important;
-    }
-
-    .gallery img:nth-child(6n + 3) {
-        grid-column: span 5 !important;
-        grid-row: span 1 !important;
-    }
-
-
-    /* =====================================
-       ROW 2
-       narrow / wide / medium
-    ===================================== */
-
-    .gallery img:nth-child(6n + 4) {
-        grid-column: span 3 !important;
-        grid-row: span 1 !important;
-    }
-
-    .gallery img:nth-child(6n + 5) {
-        grid-column: span 5 !important;
-        grid-row: span 1 !important;
-    }
-
-    .gallery img:nth-child(6n + 6) {
-        grid-column: span 4 !important;
-        grid-row: span 1 !important;
-    }
-
-}
-
 
 /* =========================================
-   MOBILE
+   REDUCED MOTION ACCESSIBILITY
 ========================================= */
 
-@media (max-width: 700px) {
+@media (prefers-reduced-motion: reduce) {
 
-    .gallery {
-        width: 88%;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
 
-        margin: 0 auto;
+        animation-iteration-count: 1 !important;
 
-        display: grid !important;
+        transition-duration: 0.01ms !important;
 
-        grid-template-columns: 1fr !important;
-
-        grid-auto-rows: auto !important;
-
-        gap: 10px !important;
+        scroll-behavior: auto !important;
     }
-
-
-    .gallery img,
-    .gallery .gallery-image,
-    .gallery img:nth-child(n) {
-
-        grid-column: auto !important;
-        grid-row: auto !important;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        aspect-ratio: 3 / 2;
-
-        object-fit: cover;
-
-        margin: 0 !important;
-    }
-
 }
