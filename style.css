@@ -42,7 +42,6 @@ body {
 
 .sidebar {
     position: fixed;
-
     top: 0;
     left: 0;
 
@@ -92,7 +91,6 @@ body {
 .sidebar-social {
     display: flex;
     flex-direction: column;
-
     align-items: flex-start;
 
     gap: 11px;
@@ -237,7 +235,7 @@ body {
 }
 
 
-/* alternating project information */
+/* alternating homepage project information */
 
 .project-card:nth-of-type(even) .project-info {
     grid-template-columns: 1fr 2fr;
@@ -443,7 +441,7 @@ footer p {
 
 /* =========================================
    GALLERY
-   3-COLUMN VERTICAL EDITORIAL / MASONRY
+   TRUE VERTICAL EDITORIAL GRID
 ========================================= */
 
 .gallery {
@@ -451,43 +449,49 @@ footer p {
 
     margin: 0 auto;
 
-    display: block !important;
+    display: grid !important;
 
-    column-count: 3;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr)) !important;
+
+    /*
+       Small row units allow different
+       vertical heights without changing width.
+    */
+
+    grid-auto-rows: 8px;
+
+    grid-auto-flow: dense;
 
     column-gap: 8px;
+
+    row-gap: 8px;
 }
 
 
-/*
-   Each photo keeps its natural ratio.
-
-   This creates the vertical variation:
-   portrait photographs remain taller,
-   landscape photographs remain shorter.
-*/
+/* shared gallery image rules */
 
 .gallery img,
 .gallery .gallery-image {
     width: 100% !important;
 
-    height: auto !important;
+    height: 100% !important;
 
     display: block;
 
-    margin: 0 0 8px 0 !important;
-
-    object-fit: contain;
+    object-fit: cover;
 
     aspect-ratio: auto !important;
 
-    break-inside: avoid;
+    margin: 0 !important;
 
-    -webkit-column-break-inside: avoid;
+    /*
+       CRITICAL:
+       every photo always stays exactly
+       one column wide
+    */
 
-    grid-column: auto !important;
-
-    grid-row: auto !important;
+    grid-column: span 1 !important;
 
     cursor: zoom-in;
 
@@ -498,6 +502,99 @@ footer p {
 
     will-change: transform;
 }
+
+
+/* =========================================
+   VERTICAL HEIGHT PATTERN
+   ONLY HEIGHT CHANGES — NEVER WIDTH
+========================================= */
+
+
+/* 01 — medium */
+
+.gallery img:nth-child(12n + 1) {
+    grid-row: span 34 !important;
+}
+
+
+/* 02 — tall */
+
+.gallery img:nth-child(12n + 2) {
+    grid-row: span 43 !important;
+}
+
+
+/* 03 — short */
+
+.gallery img:nth-child(12n + 3) {
+    grid-row: span 28 !important;
+}
+
+
+/* 04 — tall */
+
+.gallery img:nth-child(12n + 4) {
+    grid-row: span 42 !important;
+}
+
+
+/* 05 — medium */
+
+.gallery img:nth-child(12n + 5) {
+    grid-row: span 35 !important;
+}
+
+
+/* 06 — short */
+
+.gallery img:nth-child(12n + 6) {
+    grid-row: span 29 !important;
+}
+
+
+/* 07 — short */
+
+.gallery img:nth-child(12n + 7) {
+    grid-row: span 28 !important;
+}
+
+
+/* 08 — tall */
+
+.gallery img:nth-child(12n + 8) {
+    grid-row: span 44 !important;
+}
+
+
+/* 09 — medium */
+
+.gallery img:nth-child(12n + 9) {
+    grid-row: span 35 !important;
+}
+
+
+/* 10 — tall */
+
+.gallery img:nth-child(12n + 10) {
+    grid-row: span 42 !important;
+}
+
+
+/* 11 — short */
+
+.gallery img:nth-child(12n + 11) {
+    grid-row: span 29 !important;
+}
+
+
+/* 12 — medium */
+
+.gallery img:nth-child(12n + 12) {
+    grid-row: span 35 !important;
+}
+
+
+/* hover */
 
 .gallery img:hover,
 .gallery .gallery-image:hover {
@@ -732,23 +829,6 @@ footer p {
 
 
 /* =========================================
-   SMALL TABLET
-   MASONRY → 2 COLUMNS
-========================================= */
-
-@media (max-width: 900px) {
-
-    .gallery {
-        width: 94%;
-
-        column-count: 2;
-
-        column-gap: 8px;
-    }
-}
-
-
-/* =========================================
    MOBILE
 ========================================= */
 
@@ -759,9 +839,7 @@ footer p {
     }
 
 
-    /* =====================================
-       SIDEBAR → TOP BAR
-    ===================================== */
+    /* SIDEBAR → TOP BAR */
 
     .sidebar {
         position: relative;
@@ -805,9 +883,7 @@ footer p {
     }
 
 
-    /* =====================================
-       HERO
-    ===================================== */
+    /* HERO */
 
     .hero {
         min-height: 68vh;
@@ -832,9 +908,7 @@ footer p {
     }
 
 
-    /* =====================================
-       PROJECTS
-    ===================================== */
+    /* PROJECTS */
 
     .projects {
         width: 88%;
@@ -880,9 +954,7 @@ footer p {
     }
 
 
-    /* =====================================
-       ABOUT
-    ===================================== */
+    /* ABOUT */
 
     .about {
         padding: 80px 6% 120px;
@@ -893,9 +965,7 @@ footer p {
     }
 
 
-    /* =====================================
-       ALBUM
-    ===================================== */
+    /* ALBUM */
 
     .album-intro {
         min-height: auto;
@@ -918,35 +988,40 @@ footer p {
     }
 
 
-    /* =====================================
-       GALLERY — MOBILE
-    ===================================== */
+    /* GALLERY — MOBILE */
 
     .gallery {
         width: 92%;
 
-        column-count: 1;
+        display: grid !important;
 
-        column-gap: 0;
+        grid-template-columns: 1fr !important;
+
+        grid-auto-rows: auto !important;
+
+        gap: 10px;
     }
 
     .gallery img,
-    .gallery .gallery-image {
+    .gallery .gallery-image,
+    .gallery img:nth-child(n) {
         width: 100% !important;
 
         height: auto !important;
 
-        margin-bottom: 10px !important;
+        grid-column: auto !important;
+
+        grid-row: auto !important;
 
         aspect-ratio: auto !important;
 
         object-fit: contain;
+
+        margin: 0 !important;
     }
 
 
-    /* =====================================
-       FOOTERS
-    ===================================== */
+    /* FOOTERS */
 
     footer {
         width: 88%;
@@ -959,9 +1034,7 @@ footer p {
     }
 
 
-    /* =====================================
-       LIGHTBOX
-    ===================================== */
+    /* LIGHTBOX */
 
     .lightbox img {
         max-width: 96vw;
