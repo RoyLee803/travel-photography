@@ -908,3 +908,63 @@ footer p {
         transform: none;
     }
 }
+
+/* =========================================
+   FINAL GALLERY OVERRIDE
+   3 columns desktop / 1 column mobile
+========================================= */
+
+@media (min-width: 701px) {
+
+    .gallery {
+        width: 91%;
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        grid-auto-rows: auto;
+
+        gap: 10px;
+    }
+
+    .gallery img,
+    .gallery img:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 3 / 2;
+
+        object-fit: cover;
+
+        display: block;
+
+        margin: 0;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .gallery {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .gallery img,
+    .gallery img:nth-child(n) {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 3 / 2;
+
+        object-fit: cover;
+    }
+}
